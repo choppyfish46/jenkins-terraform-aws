@@ -55,7 +55,7 @@ pipeline {
       steps {
         script {
           withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
-            credentialsId: params.manohad2, 
+             
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',  
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
