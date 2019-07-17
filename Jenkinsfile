@@ -11,6 +11,16 @@ pipeline {
     string(name: 'credential', defaultValue : 'jenkins', description: "Jenkins credential that provides the AWS access key and secret.")
     string(name: 'region', defaultValue : 'eu-west-1', description: "AWS region.")
   }
+   
+  environment {
+        TF_HOME = tool('terraform')
+        TF_IN_AUTOMATION = "true"
+        PATH = "$TF_HOME:$PATH"
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        TF_VAR_access_key = credentials('AWS_ACCESS_KEY_ID')
+        TF_VAR_secret_key = credentials('AWS_SECRET_ACCESS_KEY')
+    } 
 
   options {
     disableConcurrentBuilds()
