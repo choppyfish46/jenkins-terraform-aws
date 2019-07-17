@@ -1,3 +1,6 @@
+awsCredentialsId = 'ow-deployer.creds'
+
+
 pipeline {
    
     agent any
@@ -50,7 +53,7 @@ pipeline {
       steps {
         script {
           withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
-            credentialsId: params.manohad2,
+            credentialsId: awsCredentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',  
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
@@ -84,7 +87,7 @@ pipeline {
           input "Create/update Terraform stack eks-${params.cluster} in aws?" 
 
           withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
-            credentialsId: params.manohad2, 
+            credentialsId: awsCredentialsId, 
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',  
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
@@ -105,7 +108,7 @@ pipeline {
           input "Destroy Terraform stack eks-${params.cluster} in aws?" 
 
           withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
-            credentialsId: params.manohad2, 
+            credentialsId: awsCredentialsId, 
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',  
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
