@@ -14,7 +14,7 @@ pipeline {
     string(name: 'instance_type', defaultValue : 'm4.large', description: "k8s worker node instance type.")
     string(name: 'num_workers', defaultValue : '3', description: "k8s number of worker instances.")
     string(name: 'api_ingress_cidrs', defaultValue : '0.0.0.0/0', description: "k8s api ingress cidrs; space delimited list.")
-    string(name: 'credential', defaultValue : 'manohad2', description: "Jenkins credential that provides the AWS access key and secret.")
+    string(name: 'manohad2', defaultValue : 'AKIA5OAO32R44YG244PJ', description: "Jenkins credential that provides the AWS access key and secret.")
     string(name: 'region', defaultValue : 'eu-west-1', description: "AWS region.")
   }
    
