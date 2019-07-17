@@ -28,12 +28,7 @@ pipeline {
         TF_VAR_secret_key = credentials('AWS_SECRET_ACCESS_KEY')
     } 
 
-  options {
-    disableConcurrentBuilds()
-    timeout(time: 1, unit: 'HOURS')
-    withAWS(credentials: params.manohad2, region: params.region)
-    ansiColor('xterm')
-  }
+ 
 
  
 
