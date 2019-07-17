@@ -1,4 +1,10 @@
 pipeline {
+   
+    agent any
+   
+   tools {
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform"
+    }
 
    parameters {
     choice(name: 'action', choices: 'create\ndestroy', description: 'Create/update or destroy the eks cluster.')
@@ -29,7 +35,7 @@ pipeline {
     ansiColor('xterm')
   }
 
-  agent any
+ 
 
   stages {
 
